@@ -172,7 +172,7 @@ modul_dashboard_ui <- function(id) {
                       
                       box(
                         title = "Dataset of Shopee Reviews", status = "primary", solidHeader = TRUE,
-                        collapsible = TRUE, width = "100%",
+                        collapsible = TRUE, collapsed = TRUE, width = "100%",
                         
                         
                         
@@ -228,14 +228,196 @@ modul_dashboard_ui <- function(id) {
                       
                       
                       
+                      
+                      
+                      
                       box(
-                        title = "Random Sampling & Visualization", status = "primary", solidHeader = TRUE,
+                        title = "Visualization of Sentiment Distribution Based on 10 Random Sampling (Bar Chart)", status = "primary", solidHeader = TRUE,
                         collapsible = TRUE, width = "100%",
                         
                         
                         
+                        
+                        
+                        
+                        
+                        
+                        fluidRow(
+                          column(4,
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_axis.text.x"), "axis.text.x:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 sliderInput(ns("grafik1_axis.text.y"), "axis.text.y:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_axis.title"), "axis.title:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 sliderInput(ns("grafik1_legend.text"), "legend.text:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_element_text"), "element_text:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_strip.text.x"), "strip.text.x:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 sliderInput(ns("grafik1_strip.text.y"), "strip.text.y:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ), #akhir column
+                          
+                          
+                          column(4,
+                                 
+                                 
+                                 radioButtons(ns("grafik1_theme"),
+                                              
+                                              "Theme:", 
+                                              c("theme_bw" = "theme_bw", 
+                                                "theme_linedraw"="theme_linedraw",
+                                                "theme_light"="theme_light",
+                                                "theme_dark"="theme_dark",
+                                                "theme_minimal"="theme_minimal", 
+                                                "theme_classic"="theme_classic",
+                                                "theme_void" = "theme_void",
+                                                
+                                                'theme_tufte'='theme_tufte', 
+                                                'theme_economist'='theme_economist', 
+                                                'theme_solarized'='theme_solarized', 
+                                                'theme_solarized_2'='theme_solarized_2',
+                                                'theme_stata'='theme_stata',
+                                                'theme_excel'='theme_excel',
+                                                'theme_igray'='theme_igray'
+                                                
+                                              ), inline=TRUE, selected = "theme_classic"   ),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_vjust_text"), "vjust:",
+                                             min = -5, max = 5,
+                                             value = 0, step = 0.1),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik1_size_text"), "size:",
+                                             min = 0, max = 30,
+                                             value = 5),
+                                 
+                                 
+                                 textInput(ns("grafik1_color_text"),
+                                           "Text Color", 
+                                           "orange"),
+                                 
+                                 
+                                 
+                                 
+                                 textInput(ns("grafik1_warnabar1"),
+                                           "First Color for Bar", 
+                                           "#ee82ee"),
+                                 
+                                 
+                                 textInput(ns("grafik1_warnabar2"),
+                                           "Second Color for Bar", 
+                                           "#a7fc00"),
+                                 
+                                 
+                                 textInput(ns("grafik1_warnabar3"),
+                                           "Third Color for Bar", 
+                                           "#ffcc33"),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ), #akhir column
+                          
+                          
+                          
+                          column(4,
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ) #akhir column
+                          
+                          
+                        ), #akhir fluidrow
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         shinycssloaders::withSpinner(plotOutput(ns
-                          ("grafik_batang_1"), width = "900px", height = "500px" )),
+                          ("grafik_batang_1"), width = "1200px", height = "700px" )),
                         
                         
                         
@@ -244,6 +426,327 @@ modul_dashboard_ui <- function(id) {
                       
                       
                     ), #Akhir fluid row
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ##################################
+                    
+                    
+                    fluidRow(
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      box(
+                        title = "Visualization of Sentiment Distribution Based on 10 Random Sampling (Lollipop Chart)", status = "primary", solidHeader = TRUE,
+                        collapsible = TRUE, collapsed = FALSE, width = "100%",
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        fluidRow(
+                          column(4,
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_axis.text.x"), "axis.text.x:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 sliderInput(ns("grafik2_axis.text.y"), "axis.text.y:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_axis.title"), "axis.title:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 sliderInput(ns("grafik2_legend.text"), "legend.text:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_element_text"), "element_text:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_strip.text.x"), "strip.text.x:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 sliderInput(ns("grafik2_strip.text.y"), "strip.text.y:",
+                                             min = 1, max = 30,
+                                             value = 15),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ), #akhir column
+                          
+                          
+                          column(4,
+                                 
+                                 
+                                 
+                                 radioButtons(ns("grafik2_theme"),
+                                              
+                                              "Theme:", 
+                                              c("theme_bw" = "theme_bw", 
+                                                "theme_linedraw"="theme_linedraw",
+                                                "theme_light"="theme_light",
+                                                "theme_dark"="theme_dark",
+                                                "theme_minimal"="theme_minimal", 
+                                                "theme_classic"="theme_classic",
+                                                "theme_void" = "theme_void",
+                                                
+                                                'theme_tufte'='theme_tufte', 
+                                                'theme_economist'='theme_economist', 
+                                                'theme_solarized'='theme_solarized', 
+                                                'theme_solarized_2'='theme_solarized_2',
+                                                'theme_stata'='theme_stata',
+                                                'theme_excel'='theme_excel',
+                                                'theme_igray'='theme_igray'
+                                                
+                                              ), inline=TRUE, selected = "theme_classic"   ),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_geom_point"), "size:",
+                                             min = 0, max = 20,
+                                             value = 7),
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_geom_segment"), "size:",
+                                             min = 0, max = 10,
+                                             value = 1),
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_vjust_text"), "vjust:",
+                                             min = -5, max = 5,
+                                             value = 0, step = 0.1),
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 sliderInput(ns("grafik2_size_text"), "size:",
+                                             min = 0, max = 30,
+                                             value = 5),
+                                 
+                                 
+                                 textInput(ns("grafik2_color_text"),
+                                           "Text Color", 
+                                           "orange"),
+                                 
+                                 
+                                 
+                                 textInput(ns("grafik2_color_point"),
+                                           "Point Color", 
+                                           "green"),
+                                 
+                                 
+                                 textInput(ns("grafik2_color_segment"),
+                                           "Segment Color", 
+                                           "blue"),
+                                 
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ), #akhir column
+                          
+                          
+                          
+                          column(4,
+                                 
+                                 
+                                 br()
+                                 
+                                 
+                          ) #akhir column
+                          
+                          
+                        ), #akhir fluidrow
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        fluidRow(
+                          column(4,
+                                 
+                                 
+                        
+                        shinycssloaders::withSpinner(plotOutput(ns
+                                                                ("grafik_lolipop_1"), width = "500px", height = "500px" )),
+                        
+                        
+                          ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns
+                                                                       ("grafik_lolipop_2"), width = "500px", height = "500px" )),
+                               
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns
+                                                                       ("grafik_lolipop_3"), width = "500px", height = "500px" )),
+                               
+                               
+                        )
+                        
+                        
+                        ), #Akhir fluidrow
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      ) #akhir box
+                      
+                      
+                    ), #Akhir fluid row
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -754,7 +1257,7 @@ modul_dashboard_server <- function(input, output, session) {
     
     
     
-    pilih_grup <- c(1,2,3)
+    pilih_grup <- c(1,2,3,4,5,6,7,8,9,10)
     
     grup_lengkap <- dataku[,"group"]
     
@@ -889,9 +1392,20 @@ modul_dashboard_server <- function(input, output, session) {
     
     
     
+    #############
     
     
     
+    
+    urutan_narasi_sampling <- c("Sampling Group 1", "Sampling Group 2", "Sampling Group 3", "Sampling Group 4", "Sampling Group 5", "Sampling Group 6", "Sampling Group 7", "Sampling Group 8", "Sampling Group 9", "Sampling Group 10")
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- as.factor(data_sudah_disusun_untuk_grafik[,"Group"])
+    
+    a = data_sudah_disusun_untuk_grafik[,"Group"]
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- factor(a, levels = urutan_narasi_sampling)
+    
+
     
     
     
@@ -904,17 +1418,102 @@ modul_dashboard_server <- function(input, output, session) {
       ggtitle("Frequency Distribution of Sentiment Based on Sampling Group (Sampling based on Shopee Review Data from 2026)") +
       facet_wrap( ~ Group) +
       theme(legend.position="none") +
-      xlab("") +
-       theme(axis.text.x=element_text( color="black", size = 15),
-              axis.text.y=element_text( color="black", size = 15),
-              axis.title=element_text( color="black" , size = 15),
-              legend.text=element_text(size = 15, colour="blue") )+
-      theme(plot.title = element_text(hjust=0.5,  size=15, color = "black"     )) +
+      xlab("") 
+    
+    
+    
+    
+    get_theme = input$grafik1_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    grafik1_color_text <- input$grafik1_color_text
+    grafik1_color_text <- as.character(grafik1_color_text)
+    
+    
+    warna1 <- input$grafik1_warnabar1
+    
+    
+    warna2 <- input$grafik1_warnabar2
+    warna3 <- input$grafik1_warnabar3
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik1_axis.text.x),
+              axis.text.y=element_text( color="black", size = input$grafik1_axis.text.y),
+              axis.title=element_text( color="black" , size = input$grafik1_axis.title),
+              legend.text=element_text(size = input$grafik1_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik1_element_text, color = "black"     )) +
       theme(strip.background = element_rect( fill = "grey"  ), 
             strip.text.x = element_text(colour = "black"  , 
-                                        size  = 15),
+                                        size  = input$grafik1_strip.text.x),
             strip.text.y = element_text(colour = "black"  , 
-                                        size  = 15)) 
+                                        size  = input$grafik1_strip.text.y)) +
+       geom_text(aes(label=paste0(Frequency) ), 
+                  color= grafik1_color_text,
+                 position = position_dodge(0), 
+                  vjust = input$grafik1_vjust_text, 
+                 size = input$grafik1_size_text ) +
+      scale_fill_manual(values = c(warna1, warna2, warna3))
+    
     
    
     
@@ -943,6 +1542,1059 @@ modul_dashboard_server <- function(input, output, session) {
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ############
+  ############
+  
+  
+  
+  
+  
+  
+  output$grafik_lolipop_1 <- renderPlot({
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    
+    pilih_grup <- c(1,2,3,4,5,6,7,8,9,10)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    
+    
+    
+    
+    jumlah_positif = 0
+    jumlah_negatif = 0
+    jumlah_netral = 0
+    
+    simpan_positif = 0
+    simpan_negatif = 0
+    simpan_netral = 0
+    simpan_grup = 0
+    
+    
+    for(i in 1 :  length(pilih_grup) )
+    {
+      
+      grup_lengkap <- data_dengan_grup_terpilih[,"group"]
+      
+      indeks <- grup_lengkap %in% pilih_grup[i]
+      indeks <- which(indeks == TRUE)
+      
+      data_sesuai_indeks <- data_dengan_grup_terpilih[c(indeks),]
+      
+      x <- data_sesuai_indeks[,"Sentiment"]
+      
+      
+      indeks_positif <-  x %in% "+" 
+      indeks_positif <- which(indeks_positif == TRUE)
+      jumlah_positif <- length(indeks_positif)
+      print(jumlah_positif)
+      
+      
+      indeks_negatif <- x %in% "-"
+      indeks_negatif <- which(indeks_negatif == TRUE)
+      jumlah_negatif <- length(indeks_negatif) 
+      
+      indeks_netral <- x %in% "0"
+      indeks_netral <- which(indeks_netral == TRUE)
+      jumlah_netral <- length(indeks_netral) 
+      
+      simpan_positif[i] <- jumlah_positif
+      simpan_negatif[i] <- jumlah_negatif
+      simpan_netral[i] <- jumlah_netral
+      simpan_grup[i] <- pilih_grup[i]
+      
+      
+    }
+    
+    
+    dframe <- data.frame(simpan_grup, simpan_positif, simpan_negatif, simpan_netral)
+    colnames(dframe) = c("Group", "Positive (+)", "Negative (-)", "Neutral (0)")
+    
+    
+    
+    
+    
+    
+    #############
+    
+    
+    jumlah_grup <- length(dframe[,1])
+    sentiment <- c("+","-","0")
+    jumlah_sentimen <- length(sentiment)
+    
+    simpan_grup <- vector(mode = "numeric")
+    simpan_sentimen <- vector(mode = "character")
+    jumlah <- vector(mode = "numeric")
+    persentase <- vector(mode = "numeric")
+    
+    for(i in 1 : jumlah_grup   )
+    {
+      
+      if(i == 1)
+      {
+        
+        simpan_grup <- rep(x = paste0("Sampling Group ", dframe[i,1]) ,  jumlah_sentimen   )
+        
+        simpan_sentimen <- sentiment
+        
+        jumlah <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        
+        jumlah_baris <- sum(dframe[i,2], dframe[i,3], dframe[i,4])
+        persentase <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        persentase <- round(persentase, digits = 2)
+        
+      }
+      
+      
+      if(i > 1)
+      {
+        
+        A <- rep(x = paste0("Sampling Group ", dframe[i,1]),  jumlah_sentimen   )
+        simpan_grup <- c(simpan_grup, A)
+        
+        B <- sentiment
+        simpan_sentimen <- c(simpan_sentimen, B)
+        
+        C <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        jumlah <- c(jumlah, C)
+        
+        
+        D <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        D <- round(D, digits = 2)
+        
+        
+        persentase <- c(persentase, D)
+        
+        
+        
+      }
+      
+      
+      
+      
+      
+      
+    }
+    
+    
+    data_sudah_disusun_untuk_grafik <- data.frame(simpan_grup, simpan_sentimen, jumlah, persentase)
+    colnames(data_sudah_disusun_untuk_grafik) <- c("Group", "Sentiment", "Frequency", "Percentage")
+    
+    
+    
+    #############
+    
+    
+    
+    
+    urutan_narasi_sampling <- c("Sampling Group 1", "Sampling Group 2", "Sampling Group 3", "Sampling Group 4", "Sampling Group 5", "Sampling Group 6", "Sampling Group 7", "Sampling Group 8", "Sampling Group 9", "Sampling Group 10")
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- as.factor(data_sudah_disusun_untuk_grafik[,"Group"])
+    
+    a = data_sudah_disusun_untuk_grafik[,"Group"]
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- factor(a, levels = urutan_narasi_sampling)
+    
+    
+    
+    
+    pilih_sentimen <- "+"
+    
+    seluruh_sentimen <- data_sudah_disusun_untuk_grafik[,"Sentiment"]
+    
+    indeks <- seluruh_sentimen %in% pilih_sentimen
+    indeks <- which(indeks == TRUE)
+    
+    data_sudah_disusun_untuk_grafik2 <- data_sudah_disusun_untuk_grafik[c(indeks),]
+    
+    # Plot
+  gambar <-  ggplot(data_sudah_disusun_untuk_grafik2,
+           aes(x = Group, 
+               y = Frequency)) +
+      geom_segment( 
+        aes(x = Group, xend = Group, 
+            y = 0, yend = Frequency) , 
+        size = input$grafik2_geom_segment, 
+        color = input$grafik2_color_segment, 
+        linetype="solid" ) +
+      geom_point( color = input$grafik2_color_point,
+                  size = input$grafik2_geom_point) +
+      theme_light()  + coord_flip() 
+  
+  
+  
+  
+  
+  
+  
+  
+  get_theme = input$grafik2_theme
+  
+  if(get_theme == 'theme_bw')
+  {
+    gambar <- gambar + theme_bw()
+  }
+  
+  if(get_theme == 'theme_linedraw')
+  {
+    gambar <- gambar + theme_linedraw()
+  }
+  if(get_theme == 'theme_light')
+  {
+    gambar <- gambar + theme_light()
+  }
+  if(get_theme == 'theme_dark')
+  {
+    gambar <- gambar + theme_dark()
+  }
+  if(get_theme == 'theme_minimal')
+  {
+    gambar <- gambar + theme_minimal()
+  }
+  if(get_theme == 'theme_classic')
+  {
+    gambar <- gambar + theme_classic()
+  }
+  if(get_theme == 'theme_void')
+  {
+    gambar <- gambar + theme_void()
+  }
+  if(get_theme == 'theme_tufte')
+  {
+    gambar <- gambar + theme_tufte()
+  }
+  if(get_theme == 'theme_economist')
+  {
+    gambar <- gambar + theme_economist()
+  }
+  if(get_theme == 'theme_solarized')
+  {
+    gambar <- gambar + theme_solarized()
+  }
+  if(get_theme == 'theme_solarized_2')
+  {
+    gambar <- gambar + theme_solarized(light = FALSE)
+  }
+  if(get_theme == 'theme_stata')
+  {
+    gambar <- gambar + theme_stata()
+  }
+  if(get_theme == 'theme_excel')
+  {
+    gambar <- gambar + theme_excel()
+  }
+  if(get_theme == 'theme_igray')
+  {
+    gambar <- gambar + theme_igray()
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    gambar <- gambar +  geom_text(aes(label=paste0(Frequency) ), 
+                color= input$grafik2_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik2_vjust_text, 
+                size = input$grafik2_size_text ) +
+    theme(axis.text.x=element_text( color="black", size = input$grafik2_axis.text.x),
+          axis.text.y=element_text( color="black", size = input$grafik2_axis.text.y),
+          axis.title=element_text( color="black" , size = input$grafik2_axis.title),
+          legend.text=element_text(size = input$grafik2_legend.text, colour="blue") )+
+    theme(plot.title = element_text(hjust=0.5,  size = input$grafik2_element_text, color = "black"     )) +
+    theme(strip.background = element_rect( fill = "grey"  ), 
+          strip.text.x = element_text(colour = "black"  , 
+                                      size  = input$grafik2_strip.text.x),
+          strip.text.y = element_text(colour = "black"  , 
+                                      size  = input$grafik2_strip.text.y)) +
+      ggtitle("Positive Sentiment")
+    
+    
+    
+    
+    
+    
+#    grafik1_color_text <- input$grafik1_color_text
+ #   grafik1_color_text <- as.character(grafik1_color_text)
+    
+    
+  #  warna1 <- input$grafik1_warnabar1
+    
+    
+   # warna2 <- input$grafik1_warnabar2
+    #warna3 <- input$grafik1_warnabar3
+    
+
+    
+    
+    print(gambar)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  })
+  
+  
+  #############
+  #############
+  
+  
+  
+  
+  
+  output$grafik_lolipop_2 <- renderPlot({
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    
+    pilih_grup <- c(1,2,3,4,5,6,7,8,9,10)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    
+    
+    
+    
+    jumlah_positif = 0
+    jumlah_negatif = 0
+    jumlah_netral = 0
+    
+    simpan_positif = 0
+    simpan_negatif = 0
+    simpan_netral = 0
+    simpan_grup = 0
+    
+    
+    for(i in 1 :  length(pilih_grup) )
+    {
+      
+      grup_lengkap <- data_dengan_grup_terpilih[,"group"]
+      
+      indeks <- grup_lengkap %in% pilih_grup[i]
+      indeks <- which(indeks == TRUE)
+      
+      data_sesuai_indeks <- data_dengan_grup_terpilih[c(indeks),]
+      
+      x <- data_sesuai_indeks[,"Sentiment"]
+      
+      
+      indeks_positif <-  x %in% "+" 
+      indeks_positif <- which(indeks_positif == TRUE)
+      jumlah_positif <- length(indeks_positif)
+      print(jumlah_positif)
+      
+      
+      indeks_negatif <- x %in% "-"
+      indeks_negatif <- which(indeks_negatif == TRUE)
+      jumlah_negatif <- length(indeks_negatif) 
+      
+      indeks_netral <- x %in% "0"
+      indeks_netral <- which(indeks_netral == TRUE)
+      jumlah_netral <- length(indeks_netral) 
+      
+      simpan_positif[i] <- jumlah_positif
+      simpan_negatif[i] <- jumlah_negatif
+      simpan_netral[i] <- jumlah_netral
+      simpan_grup[i] <- pilih_grup[i]
+      
+      
+    }
+    
+    
+    dframe <- data.frame(simpan_grup, simpan_positif, simpan_negatif, simpan_netral)
+    colnames(dframe) = c("Group", "Positive (+)", "Negative (-)", "Neutral (0)")
+    
+    
+    
+    
+    
+    
+    #############
+    
+    
+    jumlah_grup <- length(dframe[,1])
+    sentiment <- c("+","-","0")
+    jumlah_sentimen <- length(sentiment)
+    
+    simpan_grup <- vector(mode = "numeric")
+    simpan_sentimen <- vector(mode = "character")
+    jumlah <- vector(mode = "numeric")
+    persentase <- vector(mode = "numeric")
+    
+    for(i in 1 : jumlah_grup   )
+    {
+      
+      if(i == 1)
+      {
+        
+        simpan_grup <- rep(x = paste0("Sampling Group ", dframe[i,1]) ,  jumlah_sentimen   )
+        
+        simpan_sentimen <- sentiment
+        
+        jumlah <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        
+        jumlah_baris <- sum(dframe[i,2], dframe[i,3], dframe[i,4])
+        persentase <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        persentase <- round(persentase, digits = 2)
+        
+      }
+      
+      
+      if(i > 1)
+      {
+        
+        A <- rep(x = paste0("Sampling Group ", dframe[i,1]),  jumlah_sentimen   )
+        simpan_grup <- c(simpan_grup, A)
+        
+        B <- sentiment
+        simpan_sentimen <- c(simpan_sentimen, B)
+        
+        C <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        jumlah <- c(jumlah, C)
+        
+        
+        D <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        D <- round(D, digits = 2)
+        
+        
+        persentase <- c(persentase, D)
+        
+        
+        
+      }
+      
+      
+      
+      
+      
+      
+    }
+    
+    
+    data_sudah_disusun_untuk_grafik <- data.frame(simpan_grup, simpan_sentimen, jumlah, persentase)
+    colnames(data_sudah_disusun_untuk_grafik) <- c("Group", "Sentiment", "Frequency", "Percentage")
+    
+    
+    
+    #############
+    
+    
+    
+    
+    urutan_narasi_sampling <- c("Sampling Group 1", "Sampling Group 2", "Sampling Group 3", "Sampling Group 4", "Sampling Group 5", "Sampling Group 6", "Sampling Group 7", "Sampling Group 8", "Sampling Group 9", "Sampling Group 10")
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- as.factor(data_sudah_disusun_untuk_grafik[,"Group"])
+    
+    a = data_sudah_disusun_untuk_grafik[,"Group"]
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- factor(a, levels = urutan_narasi_sampling)
+    
+    
+    
+    
+    pilih_sentimen <- "-"
+    
+    seluruh_sentimen <- data_sudah_disusun_untuk_grafik[,"Sentiment"]
+    
+    indeks <- seluruh_sentimen %in% pilih_sentimen
+    indeks <- which(indeks == TRUE)
+    
+    data_sudah_disusun_untuk_grafik2 <- data_sudah_disusun_untuk_grafik[c(indeks),]
+    
+    # Plot
+    gambar <-  ggplot(data_sudah_disusun_untuk_grafik2,
+                      aes(x = Group, 
+                          y = Frequency)) +
+      geom_segment( 
+        aes(x = Group, xend = Group, 
+            y = 0, yend = Frequency) , 
+        size = input$grafik2_geom_segment, 
+        color = input$grafik2_color_segment, 
+        linetype="solid" ) +
+      geom_point( color = input$grafik2_color_point,
+                  size = input$grafik2_geom_point) +
+      theme_light()  + coord_flip() 
+    
+    
+    
+    
+    
+    
+    
+    
+    get_theme = input$grafik2_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    gambar <- gambar +  geom_text(aes(label=paste0(Frequency) ), 
+                                  color= input$grafik2_color_text,
+                                  position = position_dodge(0), 
+                                  vjust = input$grafik2_vjust_text, 
+                                  size = input$grafik2_size_text ) +
+      theme(axis.text.x=element_text( color="black", size = input$grafik2_axis.text.x),
+            axis.text.y=element_text( color="black", size = input$grafik2_axis.text.y),
+            axis.title=element_text( color="black" , size = input$grafik2_axis.title),
+            legend.text=element_text(size = input$grafik2_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik2_element_text, color = "black"     )) +
+      theme(strip.background = element_rect( fill = "grey"  ), 
+            strip.text.x = element_text(colour = "black"  , 
+                                        size  = input$grafik2_strip.text.x),
+            strip.text.y = element_text(colour = "black"  , 
+                                        size  = input$grafik2_strip.text.y)) +
+      ggtitle("Negative Sentiment")
+    
+    
+    
+    
+    
+    
+    #    grafik1_color_text <- input$grafik1_color_text
+    #   grafik1_color_text <- as.character(grafik1_color_text)
+    
+    
+    #  warna1 <- input$grafik1_warnabar1
+    
+    
+    # warna2 <- input$grafik1_warnabar2
+    #warna3 <- input$grafik1_warnabar3
+    
+    
+    
+    
+    print(gambar)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  })
+  
+  
+  
+  #############
+  #############
+  
+  
+  
+  
+  
+  output$grafik_lolipop_3 <- renderPlot({
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    
+    pilih_grup <- c(1,2,3,4,5,6,7,8,9,10)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    
+    
+    
+    
+    jumlah_positif = 0
+    jumlah_negatif = 0
+    jumlah_netral = 0
+    
+    simpan_positif = 0
+    simpan_negatif = 0
+    simpan_netral = 0
+    simpan_grup = 0
+    
+    
+    for(i in 1 :  length(pilih_grup) )
+    {
+      
+      grup_lengkap <- data_dengan_grup_terpilih[,"group"]
+      
+      indeks <- grup_lengkap %in% pilih_grup[i]
+      indeks <- which(indeks == TRUE)
+      
+      data_sesuai_indeks <- data_dengan_grup_terpilih[c(indeks),]
+      
+      x <- data_sesuai_indeks[,"Sentiment"]
+      
+      
+      indeks_positif <-  x %in% "+" 
+      indeks_positif <- which(indeks_positif == TRUE)
+      jumlah_positif <- length(indeks_positif)
+      print(jumlah_positif)
+      
+      
+      indeks_negatif <- x %in% "-"
+      indeks_negatif <- which(indeks_negatif == TRUE)
+      jumlah_negatif <- length(indeks_negatif) 
+      
+      indeks_netral <- x %in% "0"
+      indeks_netral <- which(indeks_netral == TRUE)
+      jumlah_netral <- length(indeks_netral) 
+      
+      simpan_positif[i] <- jumlah_positif
+      simpan_negatif[i] <- jumlah_negatif
+      simpan_netral[i] <- jumlah_netral
+      simpan_grup[i] <- pilih_grup[i]
+      
+      
+    }
+    
+    
+    dframe <- data.frame(simpan_grup, simpan_positif, simpan_negatif, simpan_netral)
+    colnames(dframe) = c("Group", "Positive (+)", "Negative (-)", "Neutral (0)")
+    
+    
+    
+    
+    
+    
+    #############
+    
+    
+    jumlah_grup <- length(dframe[,1])
+    sentiment <- c("+","-","0")
+    jumlah_sentimen <- length(sentiment)
+    
+    simpan_grup <- vector(mode = "numeric")
+    simpan_sentimen <- vector(mode = "character")
+    jumlah <- vector(mode = "numeric")
+    persentase <- vector(mode = "numeric")
+    
+    for(i in 1 : jumlah_grup   )
+    {
+      
+      if(i == 1)
+      {
+        
+        simpan_grup <- rep(x = paste0("Sampling Group ", dframe[i,1]) ,  jumlah_sentimen   )
+        
+        simpan_sentimen <- sentiment
+        
+        jumlah <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        
+        jumlah_baris <- sum(dframe[i,2], dframe[i,3], dframe[i,4])
+        persentase <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        persentase <- round(persentase, digits = 2)
+        
+      }
+      
+      
+      if(i > 1)
+      {
+        
+        A <- rep(x = paste0("Sampling Group ", dframe[i,1]),  jumlah_sentimen   )
+        simpan_grup <- c(simpan_grup, A)
+        
+        B <- sentiment
+        simpan_sentimen <- c(simpan_sentimen, B)
+        
+        C <- c(dframe[i,2], dframe[i,3], dframe[i,4])
+        jumlah <- c(jumlah, C)
+        
+        
+        D <- c(dframe[i,2] / jumlah_baris * 100, dframe[i,3] / jumlah_baris * 100, dframe[i,4] / jumlah_baris * 100)
+        D <- round(D, digits = 2)
+        
+        
+        persentase <- c(persentase, D)
+        
+        
+        
+      }
+      
+      
+      
+      
+      
+      
+    }
+    
+    
+    data_sudah_disusun_untuk_grafik <- data.frame(simpan_grup, simpan_sentimen, jumlah, persentase)
+    colnames(data_sudah_disusun_untuk_grafik) <- c("Group", "Sentiment", "Frequency", "Percentage")
+    
+    
+    
+    #############
+    
+    
+    
+    
+    urutan_narasi_sampling <- c("Sampling Group 1", "Sampling Group 2", "Sampling Group 3", "Sampling Group 4", "Sampling Group 5", "Sampling Group 6", "Sampling Group 7", "Sampling Group 8", "Sampling Group 9", "Sampling Group 10")
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- as.factor(data_sudah_disusun_untuk_grafik[,"Group"])
+    
+    a = data_sudah_disusun_untuk_grafik[,"Group"]
+    
+    data_sudah_disusun_untuk_grafik[,"Group"] <- factor(a, levels = urutan_narasi_sampling)
+    
+    
+    
+    
+    pilih_sentimen <- "0"
+    
+    seluruh_sentimen <- data_sudah_disusun_untuk_grafik[,"Sentiment"]
+    
+    indeks <- seluruh_sentimen %in% pilih_sentimen
+    indeks <- which(indeks == TRUE)
+    
+    data_sudah_disusun_untuk_grafik2 <- data_sudah_disusun_untuk_grafik[c(indeks),]
+    
+    # Plot
+    gambar <-  ggplot(data_sudah_disusun_untuk_grafik2,
+                      aes(x = Group, 
+                          y = Frequency)) +
+      geom_segment( 
+        aes(x = Group, xend = Group, 
+            y = 0, yend = Frequency) , 
+        size = input$grafik2_geom_segment, 
+        color = input$grafik2_color_segment, 
+        linetype="solid" ) +
+      geom_point( color = input$grafik2_color_point,
+                  size = input$grafik2_geom_point) +
+      theme_light()  + coord_flip() 
+    
+    
+    
+    
+    
+    
+    
+    
+    get_theme = input$grafik2_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    gambar <- gambar +  geom_text(aes(label=paste0(Frequency) ), 
+                                  color= input$grafik2_color_text,
+                                  position = position_dodge(0), 
+                                  vjust = input$grafik2_vjust_text, 
+                                  size = input$grafik2_size_text ) +
+      theme(axis.text.x=element_text( color="black", size = input$grafik2_axis.text.x),
+            axis.text.y=element_text( color="black", size = input$grafik2_axis.text.y),
+            axis.title=element_text( color="black" , size = input$grafik2_axis.title),
+            legend.text=element_text(size = input$grafik2_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik2_element_text, color = "black"     )) +
+      theme(strip.background = element_rect( fill = "grey"  ), 
+            strip.text.x = element_text(colour = "black"  , 
+                                        size  = input$grafik2_strip.text.x),
+            strip.text.y = element_text(colour = "black"  , 
+                                        size  = input$grafik2_strip.text.y)) +
+      ggtitle("Neutral Sentiment")
+    
+    
+    
+    
+    
+    
+    #    grafik1_color_text <- input$grafik1_color_text
+    #   grafik1_color_text <- as.character(grafik1_color_text)
+    
+    
+    #  warna1 <- input$grafik1_warnabar1
+    
+    
+    # warna2 <- input$grafik1_warnabar2
+    #warna3 <- input$grafik1_warnabar3
+    
+    
+    
+    
+    print(gambar)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  })
   
   
   
