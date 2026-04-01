@@ -790,6 +790,675 @@ modul_dashboard_ui <- function(id) {
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  #######################
+                  #######################
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  ##################################
+                  
+                  
+                  fluidRow(
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    box(
+                      title = "Visualization of Wordcloud Based on Negative Sentiment: 10 Random Sampling", status = "primary", solidHeader = TRUE,
+                      collapsible = TRUE, collapsed = FALSE, width = "100%",
+                      
+                      
+                      
+                  
+                      
+                      
+                      fluidRow(
+                        column(4,
+                               
+                               radioButtons(ns("warna_wordcloud_sampling_1_sentiment_negatif"),
+                                            
+                                            "Theme of Words:", 
+                                            c("Blues" = "Blues", "BuGn"="BuGn",
+                                              "BuPu"="BuPu", "GnBu"="GnBu", "Greens"="Greens", "YlOrRd"="YlOrRd", "YlOrBr" = "YlOrBr", "YlGnBu" = "YlGnBu",
+                                              "Spectral" = "Spectral", "RdYlGn" = "RdYlGn", "YlGn" = "YlGn",
+                                              "RdBu" = "RdBu", "RdGy" = "RdGy", "RdYlBu" = "RdYlBu",
+                                              "PiYG" = "PiYG", "PRGn" = "PRGn", "PuOr" = "PuOr",
+                                              "Purples" = "Purples", "RdPu" = "RdPu", "BrBG" = "BrBG",
+                                              "Dark2" = "Dark2"), inline=TRUE, selected = "Dark2"   ),
+                               
+                               
+                               
+                               
+                               br()
+                               
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               
+                               sliderInput(ns("max_words_sampling_1_sentiment_negatif"), "max.words:",
+                                           min = 1, max = 100,
+                                           value = 20),
+                               
+                               
+                               
+                               
+                               sliderInput(ns("n.brewer.pal_sampling_1_sentiment_negatif"), "n.brewer.pal:",
+                                           min = 1, max = 100,
+                                           value = 10),
+                               
+                               #n.brewer.pal
+                               
+                               
+                               br()
+                               
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               sliderInput(ns("min_freq_sampling_1_sentiment_negatif"), "min.freq:",
+                                           min = 1, max = 100,
+                                           value = 4),
+                               
+                               
+                               textAreaInput(ns("rot.per_sampling_1_sentiment_negatif"), 
+                                             "rot.per", value = "0.35", height = 70, width = 100),
+                               
+                               
+                               #rot.per=0.35
+                               
+                               
+                               #min.freq = 4
+                               
+                               br()
+                               
+                               
+                        )
+                        
+                        
+                        
+                      ), #Akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 1", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_1"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               ) #akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 2", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_2"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 3", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_3"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                      ), #fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ###############
+                      
+                      
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 4", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_4"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               ) #akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 5", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_5"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 6", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_6"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                      ), #fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 7", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_7"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               ) #akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 8", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_8"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 9", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_9"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )#akhir box
+                               
+                        ),
+                        
+                        
+                        
+                      ), #fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ##################
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 10", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_wordcloud_sentiment_negatif_sampling_10"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 
+                                 br()
+                                 
+                               ) #akhir box
+                               
+                        ),
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      ), #fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                    ) #akhir box
+                    
+                    
+                  ), #Akhir fluid row
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
         
         
       ) #akhir dashboardBody
@@ -2595,6 +3264,1569 @@ modul_dashboard_server <- function(input, output, session) {
     
     
   })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##############Wordcloud
+  ##############Wordcloud
+  ##############Wordcloud
+  ##############Wordcloud
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_1 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(1)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+  
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+   
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+
+    ############
+    
+    
+    library(wordcloud)
+  # p <- tidy_books2 %>%
+   #   anti_join(stop_words) %>%
+    #  count(word) %>%
+     # with(wordcloud(word, n, max.words = input$max_words_sampling_1_sentiment_negatif, colors=brewer.pal(30, "Dark2")))
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                   #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+                     ))
+    
+    
+    
+    
+    
+
+   
+  # with(wordcloud(word, n, 
+   #               max.words = input$max_words_sampling_1_sentiment_negatif,
+    #              min.freq = input$min_freq_sampling_1_sentiment_negatif,           
+     #             random.order=FALSE, rot.per = angka_rot.per,            
+      #            colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+       #                             input$warna_wordcloud_sampling_1_sentiment_negatif  )))
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  ###############
+  ###############
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_2 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(2)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  ###########
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_3 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(3)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  ###############
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_4 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(4)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  ###############
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_5 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(5)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  #############
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_6 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(6)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  #####################
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_7 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(7)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  ###############
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_8 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(8)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##############
+  
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_9 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(9)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  ####################
+  
+  
+  
+  
+  
+  output$grafik_wordcloud_sentiment_negatif_sampling_10 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(10)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    p <- tidy_books2 %>%
+      anti_join(stop_words) %>%
+      count(word) %>%
+      with(wordcloud(word, 
+                     n, 
+                     max.words = input$max_words_sampling_1_sentiment_negatif,
+                     min.freq = input$min_freq_sampling_1_sentiment_negatif,
+                     random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+                     colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+                                       input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      ))
+    
+    
+    
+    
+    print(p)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
