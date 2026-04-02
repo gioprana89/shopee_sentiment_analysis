@@ -233,7 +233,7 @@ modul_dashboard_ui <- function(id) {
                       
                       box(
                         title = "Visualization of Sentiment Distribution Based on 10 Random Sampling (Bar Chart)", status = "primary", solidHeader = TRUE,
-                        collapsible = TRUE, width = "100%",
+                        collapsible = TRUE,  collapsed = FALSE, width = "100%",
                         
                         
                         
@@ -1382,6 +1382,545 @@ modul_dashboard_ui <- function(id) {
                   
                   
                   
+                  
+                  
+                  ##################################
+                  
+                  
+                  fluidRow(
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    box(
+                      title = "Visualization of Commonly Occurring Words in Negative Reviews Based on 10 Random Sampling (Bar Chart)", status = "primary", solidHeader = TRUE,
+                      collapsible = TRUE,  collapsed = FALSE, width = "100%",
+                      
+                      
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        column(4,
+                               
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_axis.text.x"), "axis.text.x:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_axis.text.y"), "axis.text.y:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_axis.title"), "axis.title:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               sliderInput(ns("grafik_batang_3_legend.text"), "legend.text:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_element_text"), "element_text:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_strip.text.x"), "strip.text.x:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_strip.text.y"), "strip.text.y:",
+                                           min = 1, max = 30,
+                                           value = 15, step = 0.1),
+                               
+                               
+                               
+                               
+                               
+                               
+                               br()
+                               
+                               
+                        ), #akhir column
+                        
+                        
+                        column(4,
+                               
+                               
+                               radioButtons(ns("grafik_batang_3_theme"),
+                                            
+                                            "Theme:", 
+                                            c("theme_bw" = "theme_bw", 
+                                              "theme_linedraw"="theme_linedraw",
+                                              "theme_light"="theme_light",
+                                              "theme_dark"="theme_dark",
+                                              "theme_minimal"="theme_minimal", 
+                                              "theme_classic"="theme_classic",
+                                              "theme_void" = "theme_void",
+                                              
+                                              'theme_tufte'='theme_tufte', 
+                                              'theme_economist'='theme_economist', 
+                                              'theme_solarized'='theme_solarized', 
+                                              'theme_solarized_2'='theme_solarized_2',
+                                              'theme_stata'='theme_stata',
+                                              'theme_excel'='theme_excel',
+                                              'theme_igray'='theme_igray'
+                                              
+                                            ), inline=TRUE, selected = "theme_classic"   ),
+                               
+                               
+                               
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_vjust_text"), "vjust:",
+                                           min = -5, max = 5,
+                                           value = 0, step = 0.1),
+                               
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_hjust_text"), "hjust:",
+                                           min = -5, max = 5,
+                                           value = 0, step = 0.1),
+                               
+                               
+                               
+                               
+                               
+                               sliderInput(ns("grafik_batang_3_size_text"), "size:",
+                                           min = 0, max = 30,
+                                           value = 5, step = 0.1),
+                               
+                               
+                               textInput(ns("grafik_batang_3_color_text"),
+                                         "Text Color", 
+                                         "blue"),
+                               
+                               
+                               
+                               
+                               textInput(ns("grafik_batang_3_warnabar1"),
+                                         "First Color for Bar", 
+                                         "#ee82ee"),
+                               
+                               
+                              # textInput(ns("grafik_batang_3_warnabar2"),
+                               #          "Second Color for Bar", 
+                                #         "#a7fc00"),
+                               
+                               
+                              # textInput(ns("grafik_batang_3_warnabar3"),
+                               #          "Third Color for Bar", 
+                                #         "#ffcc33"),
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               br()
+                               
+                               
+                        ), #akhir column
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               br()
+                               
+                               
+                        ) #akhir column
+                        
+                        
+                      ), #akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ###########################
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               box(
+                                 title = "Sampling 1", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_1"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               box(
+                                 title = "Sampling 2", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_2"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 3", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_3"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        )
+                        
+                        
+                        
+                      ), #akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ###########################
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               box(
+                                 title = "Sampling 4", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_4"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               box(
+                                 title = "Sampling 5", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_5"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 6", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_6"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        )
+                        
+                        
+                        
+                      ), #akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ###########################
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               box(
+                                 title = "Sampling 7", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_7"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               box(
+                                 title = "Sampling 8", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_8"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               box(
+                                 title = "Sampling 9", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                               
+                               
+                               shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_9"),
+                                                                       width = "80%" ) ),
+                               
+                               
+                               br()
+                               
+                               )
+                               
+                        )
+                        
+                        
+                        
+                      ), #akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ###########################
+                      
+                      
+                      
+                      
+                      fluidRow(
+                        
+                        
+                        column(4,
+                               
+                               box(
+                                 title = "Sampling 10", status = "primary", solidHeader = TRUE,
+                                 collapsible = TRUE, width = "100%",
+                                 
+                                 
+                                 
+                                 shinycssloaders::withSpinner(plotOutput(ns("grafik_batang_3_sentiment_negatif_sampling_10"),
+                                                                         width = "80%" ) ),
+                                 
+                                 
+                                 br()
+                                 
+                               )
+                               
+                        ),
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               br()
+                               
+                        ),
+                        
+                        
+                        
+                        column(4,
+                               
+                               
+                               
+                               
+                               br()
+                               
+                        )
+                        
+                        
+                        
+                      ), #akhir fluidrow
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                    ) #akhir box
+                    
+                    
+                  ), #Akhir fluid row
                   
                   
                   
@@ -4778,6 +5317,2793 @@ modul_dashboard_server <- function(input, output, session) {
     
     
   })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ###############
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_1 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(1)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+  #  p <- tidy_books2 %>%
+   #   anti_join(stop_words) %>%
+    #  count(word) %>%
+     # with(wordcloud(word, 
+      #               n, 
+       #              max.words = input$max_words_sampling_1_sentiment_negatif,
+        #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+         #            random.order=FALSE, rot.per = angka_rot.per,
+                     
+                     
+          #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+           #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+                     
+                     #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+                     
+      #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+   gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+   
+   
+   
+   
+   ###################
+   
+   
+   
+   get_theme = input$grafik_batang_3_theme
+   
+   if(get_theme == 'theme_bw')
+   {
+     gambar <- gambar + theme_bw()
+   }
+   
+   if(get_theme == 'theme_linedraw')
+   {
+     gambar <- gambar + theme_linedraw()
+   }
+   if(get_theme == 'theme_light')
+   {
+     gambar <- gambar + theme_light()
+   }
+   if(get_theme == 'theme_dark')
+   {
+     gambar <- gambar + theme_dark()
+   }
+   if(get_theme == 'theme_minimal')
+   {
+     gambar <- gambar + theme_minimal()
+   }
+   if(get_theme == 'theme_classic')
+   {
+     gambar <- gambar + theme_classic()
+   }
+   if(get_theme == 'theme_void')
+   {
+     gambar <- gambar + theme_void()
+   }
+   if(get_theme == 'theme_tufte')
+   {
+     gambar <- gambar + theme_tufte()
+   }
+   if(get_theme == 'theme_economist')
+   {
+     gambar <- gambar + theme_economist()
+   }
+   if(get_theme == 'theme_solarized')
+   {
+     gambar <- gambar + theme_solarized()
+   }
+   if(get_theme == 'theme_solarized_2')
+   {
+     gambar <- gambar + theme_solarized(light = FALSE)
+   }
+   if(get_theme == 'theme_stata')
+   {
+     gambar <- gambar + theme_stata()
+   }
+   if(get_theme == 'theme_excel')
+   {
+     gambar <- gambar + theme_excel()
+   }
+   if(get_theme == 'theme_igray')
+   {
+     gambar <- gambar + theme_igray()
+   }
+   
+   
+   
+   
+   
+   
+   
+   grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+   grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+   
+   
+   
+   
+   gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                              axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                              axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                              legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+     theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+     geom_text(aes(label=paste0(n) ), 
+               color= grafik_batang_3_color_text,
+               position = position_dodge(0), 
+               vjust = input$grafik_batang_3_vjust_text,
+               hjust = input$grafik_batang_3_hjust_text,
+               size = input$grafik_batang_3_size_text ) 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  #################
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_2 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(2)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  ##########
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_3 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(3)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  ###########
+  
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_4 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(4)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  ###########
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_5 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(5)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  ############
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_6 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(6)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  ############
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_7 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(7)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ############
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_8 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(8)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ############
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_9 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(9)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ############
+  
+  
+  
+  
+  output$grafik_batang_3_sentiment_negatif_sampling_10 <- renderPlot({
+    
+    
+    dataku <- readxl::read_xlsx("data_sampling_2026.xlsx")
+    dataku <- as.data.frame(dataku)
+    
+    
+    pilih_grup <- c(10)
+    
+    grup_lengkap <- dataku[,"group"]
+    
+    indeks <- grup_lengkap %in% pilih_grup
+    indeks <- which(indeks == TRUE)
+    
+    data_dengan_grup_terpilih <- dataku[indeks,]
+    
+    
+    ##############
+    
+    sentimen_negatif <- data_dengan_grup_terpilih[,c("Sentiment")]
+    
+    indeks <- which(sentimen_negatif == c("-"))
+    
+    data_sentimen_negatif <- data_dengan_grup_terpilih[c(indeks),]
+    
+    
+    
+    ###########
+    
+    library(dplyr)
+    text_df <- data_frame(line = 1 : length(indeks) , text = data_sentimen_negatif[,c("content")])
+    
+    
+    
+    #########
+    
+    
+    
+    library(tidytext)
+    tidy_books <- text_df %>%
+      unnest_tokens(word, text)
+    
+    
+    #########
+    
+    data(stop_words)
+    
+    tidy_books <- tidy_books %>% anti_join(stop_words)
+    
+    
+    
+    #########
+    
+    hapus_kata <- c("di", "tidak", "shopee", "yang", "saya", "bisa", "nya", "ada", "tapi", "sekarang",
+                    "dan", "ke", "makin", "mau", "dari", "kalau", "kenapa", "sangat", "udah", "banget",
+                    "gak", "padahal", "sama", "sampai", "yang", "yg", "ini", "gk","dengan", "tetapi", "5",
+                    "sering", "untuk", "aja", "banyak", "dulu", "gak", "atau", "lagi", "sekali", "khusus", "jadi",
+                    "ga", "baru", "klo", "2", "buat", "juga", "gratis", "sudah", "sdh", "bagus", "aku", "jangan", "hari",
+                    "1", "itu", "pakai", "selalu", "3", "ya", "karena", "pas", "lebih", "pihak", "suka", "pake", "sesuai",
+                    "jelas", "mana", "sih", "buka",
+                    "nggak", "lain", "cuma", "sy", "bikin", "dalam", "belum", "tuh", "hati", "kalo", "kali", "kadang",
+                    "kalian", "terlalu", "apa", "lah", "langsung", "shoppe")
+    
+    kata <- tidy_books[,"word"]
+    
+    kata <- unlist(kata)
+    
+    simpan_indeks <- vector(mode = "numeric")
+    
+    
+    k = 0
+    
+    
+    for(i in 1 : length(kata))
+    {
+      
+      if(kata[i] %in% hapus_kata == FALSE)
+      {
+        
+        k = k + 1
+        simpan_indeks[k] = i
+        
+      }
+      
+      
+    }
+    
+    
+    
+    ###########
+    
+    
+    tidy_books2 <- tidy_books[c(simpan_indeks),]
+    
+    
+    ############
+    
+    
+    
+    rot.per <- read.csv(text=input$rot.per_sampling_1_sentiment_negatif, header = FALSE, sep="", na.strings=c("","NA","."))
+    rot.per = unlist(rot.per)
+    rot.per = as.numeric(rot.per)
+    angka_rot.per <- rot.per
+    
+    
+    
+    #  p <- tidy_books2 %>%
+    #   anti_join(stop_words) %>%
+    #  count(word) %>%
+    # with(wordcloud(word, 
+    #               n, 
+    #              max.words = input$max_words_sampling_1_sentiment_negatif,
+    #             min.freq = input$min_freq_sampling_1_sentiment_negatif,
+    #            random.order=FALSE, rot.per = angka_rot.per,
+    
+    
+    #           colors=brewer.pal(input$n.brewer.pal_sampling_1_sentiment_negatif, 
+    #                            input$warna_wordcloud_sampling_1_sentiment_negatif  )
+    
+    #  with(wordcloud(word, n, max.words = 20, colors=brewer.pal(30, "Dark2")))
+    
+    #))
+    
+    
+    
+    warna1 <- input$grafik_batang_3_warnabar1
+    #warna2 <- input$grafik_batang_3_warnabar2
+    #warna3 <- input$grafik_batang_3_warnabar3
+    
+    
+    
+    
+    gambar <- tidy_books2 %>%
+      count(word, sort = TRUE) %>%
+      filter(n > 4) %>%
+      mutate(word = reorder(word, n)) %>%
+      ggplot(aes(word, n)) +
+      geom_col(fill = warna1) +
+      xlab(NULL) +
+      coord_flip()
+    
+    
+    
+    
+    ###################
+    
+    
+    
+    get_theme = input$grafik_batang_3_theme
+    
+    if(get_theme == 'theme_bw')
+    {
+      gambar <- gambar + theme_bw()
+    }
+    
+    if(get_theme == 'theme_linedraw')
+    {
+      gambar <- gambar + theme_linedraw()
+    }
+    if(get_theme == 'theme_light')
+    {
+      gambar <- gambar + theme_light()
+    }
+    if(get_theme == 'theme_dark')
+    {
+      gambar <- gambar + theme_dark()
+    }
+    if(get_theme == 'theme_minimal')
+    {
+      gambar <- gambar + theme_minimal()
+    }
+    if(get_theme == 'theme_classic')
+    {
+      gambar <- gambar + theme_classic()
+    }
+    if(get_theme == 'theme_void')
+    {
+      gambar <- gambar + theme_void()
+    }
+    if(get_theme == 'theme_tufte')
+    {
+      gambar <- gambar + theme_tufte()
+    }
+    if(get_theme == 'theme_economist')
+    {
+      gambar <- gambar + theme_economist()
+    }
+    if(get_theme == 'theme_solarized')
+    {
+      gambar <- gambar + theme_solarized()
+    }
+    if(get_theme == 'theme_solarized_2')
+    {
+      gambar <- gambar + theme_solarized(light = FALSE)
+    }
+    if(get_theme == 'theme_stata')
+    {
+      gambar <- gambar + theme_stata()
+    }
+    if(get_theme == 'theme_excel')
+    {
+      gambar <- gambar + theme_excel()
+    }
+    if(get_theme == 'theme_igray')
+    {
+      gambar <- gambar + theme_igray()
+    }
+    
+    
+    
+    
+    
+    
+    
+    grafik_batang_3_color_text <- input$grafik_batang_3_color_text
+    grafik_batang_3_color_text <- as.character(grafik_batang_3_color_text)
+    
+    
+    
+    
+    gambar <- gambar +   theme(axis.text.x=element_text( color="black", size = input$grafik_batang_3_axis.text.x),
+                               axis.text.y=element_text( color="black", size = input$grafik_batang_3_axis.text.y),
+                               axis.title=element_text( color="black" , size = input$grafik_batang_3_axis.title),
+                               legend.text=element_text(size = input$grafik_batang_3_legend.text, colour="blue") )+
+      theme(plot.title = element_text(hjust=0.5,  size = input$grafik_batang_3_element_text, color = "black"     ))+
+      geom_text(aes(label=paste0(n) ), 
+                color= grafik_batang_3_color_text,
+                position = position_dodge(0), 
+                vjust = input$grafik_batang_3_vjust_text,
+                hjust = input$grafik_batang_3_hjust_text,
+                size = input$grafik_batang_3_size_text ) 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(gambar)
+    
+    
+  })
+  
+  
+  
   
   
   
